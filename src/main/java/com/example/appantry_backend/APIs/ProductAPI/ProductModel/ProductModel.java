@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 @Entity
-@Table(name = "products") //TODO create table & columns in Postgres
+@Table(name = "products") //TODO create more columns
 public class ProductModel {
 
     // Product ID Column, GenerationType.Identity refers to auto incr in Postgres

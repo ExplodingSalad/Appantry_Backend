@@ -37,7 +37,6 @@ public class ProductController {
     }
 
     // POST (create resource)
-    // @Valid
     @RequestMapping(value = "/product", method = RequestMethod.POST)
     public ProductModel createProduct(@Valid @RequestBody ProductModel product) {
         return productService.createProduct(product);
@@ -48,16 +47,4 @@ public class ProductController {
     // DELETE
 
 
-    // Bad Request Handler
-    //generic response TODO create custom error responses
-    @ExceptionHandler
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    Map<String,String> showCustomMessage(Exception e){
-
-
-        Map<String,String> response = new HashMap<>();
-        response.put("status","Your input is invalid");
-
-        return response;
-    }
 }
