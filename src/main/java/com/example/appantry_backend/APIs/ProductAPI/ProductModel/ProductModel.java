@@ -1,13 +1,18 @@
 package com.example.appantry_backend.APIs.ProductAPI.ProductModel;
 
 import javax.persistence.*;
-import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "products") //TODO create more columns
 public class ProductModel {
+
+    public enum Category {
+        Dairy,
+        Fruit,
+        Vegetable,
+        Meat,
+        Grains
+    }
 
     // Product ID Column, GenerationType.Identity refers to auto incr in Postgres
     @Id
@@ -18,9 +23,15 @@ public class ProductModel {
     @Column(name = "product_name")
     private String productName;
 
+    @Column(name = "product_vendor")        /***/
+    private String productVendor;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "product_category")      /***/
+    private Category productCategory;
 
     @Column(name = "product_storedquantity")
-    private Integer storedProductQuantity;
+    private Integer productStoredQuantity;
 
 
     public Long getProductId() {
@@ -39,11 +50,27 @@ public class ProductModel {
         this.productName = productName;
     }
 
-    public Integer getStoredProductQuantity() {
-        return storedProductQuantity;
+    public Integer getProductStoredQuantity() {
+        return productStoredQuantity;
     }
 
-    public void setStoredProductQuantity(Integer storedProductQuantity) {
-        this.storedProductQuantity = storedProductQuantity;
+    public void setProductStoredQuantity(Integer storedProductQuantity) {
+        this.productStoredQuantity = storedProductQuantity;
+    }
+
+    public String getProductVendor() {
+        return productVendor;
+    }
+
+    public void setProductVendor(String productVendor) {
+        this.productVendor = productVendor;
+    }
+
+    public Category getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(Category category) {
+        this.productCategory = category;
     }
 }
