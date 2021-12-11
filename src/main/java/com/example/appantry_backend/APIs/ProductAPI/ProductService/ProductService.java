@@ -35,6 +35,17 @@ public class ProductService {
     }
 
     // Update Product
+    public ProductModel updateProduct(ProductModel product, Long id) {
+        ProductModel updatedProduct = productRepository.findById(id).get();
+        updatedProduct.setProductName(product.getProductName());
+        updatedProduct.setProductVendor(product.getProductVendor());
+        updatedProduct.setProductCategory(product.getProductCategory());
+        updatedProduct.setProductStoredQuantity(product.getProductStoredQuantity());
+
+        //TODO handle null values --> overwrites current values with null
+
+        return productRepository.save(updatedProduct);
+    }
 
     // Delete Product
     public void deleteProduct(Long id) {
