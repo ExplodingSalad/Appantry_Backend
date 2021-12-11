@@ -47,6 +47,10 @@ public class ProductController {
     }
 
     // PUT (update resource)
+    @RequestMapping(value = "/product/{product_id}", method = RequestMethod.PUT)
+    public ProductModel updateProduct(@PathVariable(value = "product_id") Long id, @RequestBody ProductModel product) {
+        return productService.updateProduct(product, id);
+    }
 
 
     // DELETE
