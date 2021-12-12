@@ -36,7 +36,7 @@ public class ProductController {
 
     // GET specific product
     @RequestMapping(value = "/product/{product_id}", method = RequestMethod.GET)
-    public Optional<ProductModel> readSpecificProduct(@PathVariable(value = "product_Id") Long id) {
+    public Optional<ProductModel> readSpecificProduct(@PathVariable(value = "product_id") Long id) {
         return productService.getSpecificProduct(id);
     }
 
@@ -51,8 +51,7 @@ public class ProductController {
     public ProductModel updateProduct(@PathVariable(value = "product_id") Long id, @RequestBody ProductModel product) {
         return productService.updateProduct(product, id);
     }
-
-
+    
     // DELETE
     @RequestMapping(value = "/product/{product_id}", method = RequestMethod.DELETE)
     public void deleteProduct(@PathVariable(value = "product_id") Long id) {
