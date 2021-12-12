@@ -23,11 +23,11 @@ public class Product {
     @Column(name = "product_name")
     private String productName;
 
-    @Column(name = "product_vendor")        /***/
+    @Column(name = "product_vendor")
     private String productVendor;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "product_category")      /***/
+    @Column(name = "product_category")
     private Category productCategory;
 
     @Column(name = "product_storedquantity")
