@@ -1,7 +1,5 @@
-package com.example.appantry_backend.APIs.ProductAPI.ProductService;
+package com.example.appantry_backend.APIs.ProductAPI;
 
-import com.example.appantry_backend.APIs.ProductAPI.ProductModel.ProductModel;
-import com.example.appantry_backend.APIs.ProductAPI.ProductRepository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,25 +16,25 @@ public class ProductService {
     }
 
     // Create Product
-    public ProductModel createProduct(ProductModel product) {
+    public Product createProduct(Product product) {
         return productRepository.save(product);
     }
 
 
     // Read Product ALL
-    public List<ProductModel> getProducts() {
+    public List<Product> getProducts() {
         return productRepository.findAll();
     }
 
     // Read Product SPECIFIC
     // Uses optional, since ID could be non-existing
-    public Optional<ProductModel> getSpecificProduct(Long id) {
+    public Optional<Product> getSpecificProduct(Long id) {
         return productRepository.findById(id);
     }
 
     // Update Product
-    public ProductModel updateProduct(ProductModel product, Long id) {
-        ProductModel updatedProduct = productRepository.findById(id).get();
+    public Product updateProduct(Product product, Long id) {
+        Product updatedProduct = productRepository.findById(id).get();
         updatedProduct.setProductName(product.getProductName());
         updatedProduct.setProductVendor(product.getProductVendor());
         updatedProduct.setProductCategory(product.getProductCategory());

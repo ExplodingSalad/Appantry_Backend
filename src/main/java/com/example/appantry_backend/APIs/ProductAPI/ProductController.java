@@ -1,16 +1,9 @@
-package com.example.appantry_backend.APIs.ProductAPI.ProductController;
+package com.example.appantry_backend.APIs.ProductAPI;
 
-import com.example.appantry_backend.APIs.ProductAPI.ProductModel.ProductModel;
-import com.example.appantry_backend.APIs.ProductAPI.ProductService.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -30,28 +23,28 @@ public class ProductController {
 
     // GET all products
     @RequestMapping(value = "/product", method = RequestMethod.GET)
-    public List<ProductModel> readProducts() {
+    public List<Product> readProducts() {
         return productService.getProducts();
     }
 
     // GET specific product
     @RequestMapping(value = "/product/{product_id}", method = RequestMethod.GET)
-    public Optional<ProductModel> readSpecificProduct(@PathVariable(value = "product_id") Long id) {
+    public Optional<Product> readSpecificProduct(@PathVariable(value = "product_id") Long id) {
         return productService.getSpecificProduct(id);
     }
 
     // POST (create resource)
     @RequestMapping(value = "/product", method = RequestMethod.POST)
-    public ProductModel createProduct(@Valid @RequestBody ProductModel product) {
+    public Product createProduct(@Valid @RequestBody Product product) {
         return productService.createProduct(product);
     }
 
     // PUT (update resource)
     @RequestMapping(value = "/product/{product_id}", method = RequestMethod.PUT)
-    public ProductModel updateProduct(@PathVariable(value = "product_id") Long id, @RequestBody ProductModel product) {
+    public Product updateProduct(@PathVariable(value = "product_id") Long id, @RequestBody Product product) {
         return productService.updateProduct(product, id);
     }
-    
+
     // DELETE
     @RequestMapping(value = "/product/{product_id}", method = RequestMethod.DELETE)
     public void deleteProduct(@PathVariable(value = "product_id") Long id) {

@@ -1,10 +1,10 @@
-package com.example.appantry_backend.APIs.ProductAPI.ProductModel;
+package com.example.appantry_backend.APIs.ProductAPI;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "products") //TODO create more columns
-public class ProductModel {
+public class Product {
 
     public enum Category {
         Dairy,
