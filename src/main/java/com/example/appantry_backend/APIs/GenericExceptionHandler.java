@@ -1,4 +1,4 @@
-package com.example.appantry_backend.APIs.ProductAPI.ProductController;
+package com.example.appantry_backend.APIs;
 
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;

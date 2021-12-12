@@ -1,10 +1,10 @@
-package com.example.appantry_backend.APIs.ProductAPI.ProductModel;
+package com.example.appantry_backend.APIs.ProductAPI;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "products") //TODO create more columns
-public class ProductModel {
+public class Product {
 
     public enum Category {
         Dairy,
@@ -23,11 +23,11 @@ public class ProductModel {
     @Column(name = "product_name")
     private String productName;
 
-    @Column(name = "product_vendor")        /***/
+    @Column(name = "product_vendor")
     private String productVendor;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "product_category")      /***/
+    @Column(name = "product_category")
     private Category productCategory;
 
     @Column(name = "product_storedquantity")
