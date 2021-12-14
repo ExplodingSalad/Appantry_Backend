@@ -1,6 +1,11 @@
 package com.example.appantry_backend.APIs.ProductAPI;
 
+import com.example.appantry_backend.APIs.GroceriesListAPI.GroceriesList;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "products") //TODO create more columns
@@ -33,6 +38,17 @@ public class Product {
     @Column(name = "product_storedquantity")
     private Integer productStoredQuantity;
 
+    @JsonIgnore
+    @ManyToMany(mappedBy = "products")
+    private List<GroceriesList> groceriesLists;
+
+    public List<GroceriesList> getGroceriesLists() {
+        return groceriesLists;
+    }
+
+    public void setGroceriesLists(List<GroceriesList> groceriesLists) {
+        this.groceriesLists = groceriesLists;
+    }
 
     public Long getProductId() {
         return productId;
