@@ -31,6 +31,7 @@ public class ProductController {
     @RequestMapping(value = "/product/{product_id}", method = RequestMethod.GET)
     public Optional<Product> readSpecificProduct(@PathVariable(value = "product_id") Long id) {
         return productService.getSpecificProduct(id);
+        //TODO handle non-existant products
     }
 
     // POST (create resource)

@@ -1,10 +1,12 @@
 package com.example.appantry_backend.APIs.GroceriesListAPI;
 
+import com.example.appantry_backend.APIs.ProductAPI.Product;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api")
@@ -17,13 +19,13 @@ public class GroceriesListController {
         this.groceriesListService = groceriesListService;
     }
 
-    // GET all products
+    // GET all lists
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public List<GroceriesList> readGroceriesLists() {
         return groceriesListService.getGroceriesLists();
     }
 
-    // GET specific product
+    // GET specific list
     @RequestMapping(value = "/list/{list_id}", method = RequestMethod.GET)
     public Optional<GroceriesList> readSpecificGroceriesList(@PathVariable(value = "list_id") Long id) {
         return groceriesListService.getSpecificGroceriesList(id);
@@ -49,4 +51,12 @@ public class GroceriesListController {
     public void deleteGroceriesList(@PathVariable(value = "list_id") Long id) {
         groceriesListService.deleteGroceriesList(id);
     }
+
+    /**
+    // ADD specific product to specific list -> PUT
+    @RequestMapping(value = "list/{list_id}", method = RequestMethod.PUT)
+    public GroceriesList addProductToList(@PathVariable(value = "list_id") Long id, @RequestBody Set<Product> product) {
+        return groceriesListService.addProductToList(product, id);
+    }
+    */
 }

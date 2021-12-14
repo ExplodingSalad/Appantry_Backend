@@ -1,9 +1,11 @@
 package com.example.appantry_backend.APIs.GroceriesListAPI;
 
+import com.example.appantry_backend.APIs.ProductAPI.Product;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class GroceriesListService {
@@ -48,4 +50,15 @@ public class GroceriesListService {
     public void deleteGroceriesList(Long id) {
         groceriesListRepository.deleteById(id);
     }
+
+    /**
+    public GroceriesList addProductToList(Set<Product> product, Long id) {
+
+        GroceriesList updatedList = groceriesListRepository.findById(id).get();
+        updatedList.setProduct(product);
+        System.out.println(product);
+
+        return groceriesListRepository.save(updatedList);
+    }
+     */
 }
