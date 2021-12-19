@@ -12,4 +12,8 @@ For the different Project Repositories please click the links below:
 
 # Appantry Backend
 
+Database Setup
+![Appantry_DB_ERD](https://user-images.githubusercontent.com/57450839/146036012-55152133-4e3c-4688-8731-6b6354198637.png)
+
+
 # Appantry Features
