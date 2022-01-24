@@ -5,7 +5,7 @@ Users can add products to the database and later on scan their Barcodes to simpl
 The full list of features can be found here
 
 For the different Project Repositories please click the links below:
-* [iOS App] tbc
+* [iOS App](https://github.com/ExplodingSalad/Appantry_SwiftUI)
 * [Android App] tbc
 * [Webapp] tbc
 * [Backend](https://github.com/ExplodingSalad/Appantry_Backend)
@@ -13,7 +13,11 @@ For the different Project Repositories please click the links below:
 # Appantry Backend
 
 Database Setup
+
 ![Appantry_DB_ERD](https://user-images.githubusercontent.com/57450839/146036012-55152133-4e3c-4688-8731-6b6354198637.png)
 
 
 # Appantry Features
+
+
+Disclaimer: This project is still in development and nowhere near finished :)
