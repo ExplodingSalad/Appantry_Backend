@@ -1,10 +1,10 @@
 package com.example.appantry_backend.APIs.GroceriesListAPI;
 
 import com.example.appantry_backend.APIs.ProductAPI.Product;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Entity
@@ -17,6 +17,7 @@ public class GroceriesList {
     private Long listId;
 
     @Column(name = "list_name")
+    @NotNull
     private String listName;
 
 

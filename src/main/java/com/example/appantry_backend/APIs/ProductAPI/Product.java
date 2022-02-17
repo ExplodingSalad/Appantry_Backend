@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -26,6 +27,7 @@ public class Product {
     private Long productId;
 
     @Column(name = "product_name")
+    @NotNull
     private String productName;
 
     @Column(name = "product_vendor")

@@ -4,6 +4,7 @@ import com.example.appantry_backend.APIs.ProductAPI.Product;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.Set;
 
@@ -29,7 +30,8 @@ public class GroceriesListService {
 
     // Read Product SPECIFIC
     public Optional<GroceriesList> getSpecificGroceriesList(Long id) {
-        return groceriesListRepository.findById(id);
+        return Optional.ofNullable(groceriesListRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException()));
     }
 
     // Update Product
