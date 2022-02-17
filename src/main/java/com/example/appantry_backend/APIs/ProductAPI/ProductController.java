@@ -1,9 +1,15 @@
 package com.example.appantry_backend.APIs.ProductAPI;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
+import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 /**
@@ -30,14 +36,15 @@ public class ProductController {
     // GET specific product
     @RequestMapping(value = "/product/{product_id}", method = RequestMethod.GET)
     public Optional<Product> readSpecificProduct(@PathVariable(value = "product_id") Long id) {
-        return productService.getSpecificProduct(id);
-        //TODO handle non-existant products
+        return Optional.ofNullable(productService.getSpecificProduct(id)
+                .orElseThrow(() -> new NoSuchElementException()));
     }
 
     // POST (create resource)
     @RequestMapping(value = "/product", method = RequestMethod.POST)
-    public Product createProduct(@Valid @RequestBody Product product) {
-        return productService.createProduct(product);
+    public ResponseEntity<Object> createProduct(@Valid @RequestBody Product product) {
+        productService.createProduct(product);
+        return ResponseEntity.status(HttpStatus.OK).body("Item successfully added");
     }
 
     // PUT (update resource)
@@ -48,8 +55,9 @@ public class ProductController {
 
     // DELETE
     @RequestMapping(value = "/product/{product_id}", method = RequestMethod.DELETE)
-    public void deleteProduct(@PathVariable(value = "product_id") Long id) {
+    public ResponseEntity<Object> deleteProduct(@PathVariable(value = "product_id") Long id) {
         productService.deleteProduct(id);
+        return ResponseEntity.status(HttpStatus.OK).body("Item successfully deleted");
     }
 
 
