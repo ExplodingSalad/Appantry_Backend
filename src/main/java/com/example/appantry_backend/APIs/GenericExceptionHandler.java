@@ -24,8 +24,8 @@ import java.util.NoSuchElementException;
 @ControllerAdvice
 public class GenericExceptionHandler {
 
-    private String responseStatusLabel = "Response Status";
-    private String errorMessageLabel = "Message";
+    private final String responseStatusLabel = "Response Status";
+    private final String errorMessageLabel = "Message";
 
     private String responseStatus;
     private String errorMessage;
