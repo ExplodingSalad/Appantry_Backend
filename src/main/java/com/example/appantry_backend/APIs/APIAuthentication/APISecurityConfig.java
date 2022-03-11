@@ -23,6 +23,8 @@ public class APISecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${Appantry_Backend.http.auth-token}")
     private String principalRequestValue;
 
+    // method instantiates new APIKeyAuthFilter and grabs the header of the request and uses it as param,
+    // then it compares header credentials to the specified credentials in the two variables above
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         APIKeyAuthFilter filter = new APIKeyAuthFilter(principalRequestHeader);

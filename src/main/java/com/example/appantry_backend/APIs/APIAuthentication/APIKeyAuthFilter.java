@@ -12,6 +12,7 @@ public class APIKeyAuthFilter extends AbstractPreAuthenticatedProcessingFilter {
         this.principalRequestHeader = principalRequestHeader;
     }
 
+    // grabs the header of the request
     @Override
     protected Object getPreAuthenticatedPrincipal(HttpServletRequest request) {
         return request.getHeader(principalRequestHeader);

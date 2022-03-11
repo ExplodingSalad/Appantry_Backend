@@ -34,7 +34,7 @@ public class GroceriesListService {
                 .orElseThrow(() -> new NoSuchElementException()));
     }
 
-    // Update Product
+    // Update List
     /*
     public Product updateProduct(Product product, Long id) {
         Product updatedProduct = productRepository.findById(id).get();
